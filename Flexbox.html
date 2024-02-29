@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<head>
+    <meta charset="UTF-8">
+    <title>Flexbox</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+        body, html {
+            margin: 0;
+            height: 100%;
+        }
+        .wrapper {
+            display: flex;
+            flex-wrap: wrap;
+            height: 100vh;
+            padding: 3px;
+            gap: 3px; 
+        }
+        .block {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            border: 1px solid #ccc;
+            flex-grow: 1;
+            min-height: calc(24vh - 6px);
+            min-width: calc(24vw - 6px); 
+        }
+
+        .blue {
+            background-color: #75abd2;
+        }
+        .dark-grey {
+            background-color: #3c3c3c;
+        }
+        .teal {
+            background-color: #35d2ca;
+        }
+        .red {
+            background-color: #cb6565;
+        }
+        .yellow {
+            background-color: #ffdf74;
+        }
+        .green {
+            background-color: #92df96;
+        }
+        .orange {
+            background-color: #fdae36;
+        }
+
+        .row {
+            display: flex;
+            flex-direction: row;
+            gap: 3px;
+        }
+        .column {
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            gap: 3px;
+        }
+
+        @media screen and (max-width: 1200px) {
+            .block-4 {
+                flex-direction: column;
+            }
+
+        }
+        @media screen and (max-width: 950px) {
+            .block-6 {
+                flex-direction: column;
+            }
+        }
+        @media screen and (max-width: 750px) {
+            .block-2 {
+                flex-direction: column;
+            }
+        }
+    </style>
+</head>
+<body>
+<div class="wrapper">
+    <div class="column block-1">
+        <div class="row block-2">
+            <div class="column block-3">
+                <div class="block blue"></div>
+                <div class="row block-4">
+                    <div class="column block-5">
+                        <div class="row block-6">
+                            <div class="block teal"></div>
+                            <div class="block red"></div>
+                        </div>
+                        <div class="block green"></div>
+                    </div>
+                    <div class="block yellow"></div>
+                </div>
+            </div>
+            <div class="block dark-grey"></div>
+        </div>
+        <div class="block orange"></div>
+    </div>
+</div>
+</body>
+</html>
