@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Завдання 8</title>
+</head>
+<body>
+    <input type="text" data-length="5">
+    <input type="text" data-length="10">
+    <input type="text" data-length="15">
+
+    <script>
+        document.querySelectorAll('input[type="text"]').forEach(input => {
+            input.addEventListener('blur', () => {
+                const requiredLength = parseInt(input.getAttribute('data-length'));
+                if (input.value.length === requiredLength) {
+                    input.style.border = '2px solid green';
+                } else {
+                    input.style.border = '2px solid red';
+                }
+            });
+        });
+    </script>
+</body>
+</html>

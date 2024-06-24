@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Завдання 1</title>
+</head>
+<body>
+    <img src="image1.jpg" alt="Image 1">
+    <img src="image2.jpg" alt="Image 2">
+    <img src="image3.jpg" alt="Image 3">
+
+    <script>
+        document.querySelectorAll('img').forEach(img => {
+            img.onclick = () => {
+                alert(img.src);
+            };
+        });
+    </script>
+</body>
+</html>

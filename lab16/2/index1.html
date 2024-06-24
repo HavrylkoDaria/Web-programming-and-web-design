@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Завдання 1</title>
+<style>
+  .red { background-color: red; }
+  .green { background-color: green; }
+</style>
+</head>
+<body>
+
+<!-- Три <div> елементи для клікабельних блоків -->
+<div id="div1">Div 1</div>
+<div id="div2">Div 2</div>
+<div id="div3">Div 3</div>
+
+<script>
+  // Функція для фарбування в червоний колір
+  function paintRed(event) {
+    event.target.classList.add('red'); // Додаємо клас 'red' для червоного фону
+    event.target.classList.remove('green'); // Видаляємо клас 'green', якщо він є
+    event.target.removeEventListener('click', paintRed); // Відв'язуємо поточну функцію від події кліку
+    event.target.addEventListener('click', paintGreen); // Додаємо функцію для зеленого фону після наступного кліку
+  }
+
+  // Функція для фарбування в зелений колір
+  function paintGreen(event) {
+    event.target.classList.add('green'); // Додаємо клас 'green' для зеленого фону
+    event.target.classList.remove('red'); // Видаляємо клас 'red', якщо він є
+    event.target.removeEventListener('click', paintGreen); // Відв'язуємо поточну функцію від події кліку
+    event.target.addEventListener('click', paintRed); // Додаємо функцію для червоного фону після наступного кліку
+  }
+
+  // Додаємо обробники подій для кожного <div>
+  document.getElementById('div1').addEventListener('click', paintRed);
+  document.getElementById('div2').addEventListener('click', paintRed);
+  document.getElementById('div3').addEventListener('click', paintRed);
+</script>
+
+</body>
+</html>

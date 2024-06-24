@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Завдання 3 та 4</title>
+</head>
+<body>
+    <a href="https://example.com/1">Посилання 1</a>
+    <a href="https://example.com/2">Посилання 2</a>
+    <a href="https://example.com/3">Посилання 3</a>
+
+    <script>
+        document.querySelectorAll('a').forEach(link => {
+            const mouseOverHandler = () => {
+                link.textContent += ` (${link.href})`;
+                link.removeEventListener('mouseover', mouseOverHandler);
+            };
+            link.addEventListener('mouseover', mouseOverHandler);
+        });
+    </script>
+</body>
+</html>

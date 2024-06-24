@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Завдання 2</title>
+</head>
+<body>
+    <a href="https://vivat.com.ua/">Посилання 1</a>
+    <a href="https://nashformat.ua/">Посилання 2</a>
+    <a href="https://bookclub.ua/">Посилання 3</a>
+
+    <script>
+        document.querySelectorAll('a').forEach(link => {
+            const mouseOverHandler = () => {
+                link.title = link.textContent;
+            };
+            link.addEventListener('mouseover', mouseOverHandler);
+        });
+    </script>
+</body>
+</html>

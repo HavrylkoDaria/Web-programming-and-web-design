@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Завдання 7</title>
+</head>
+<body>
+    <p>2</p>
+    <p>3</p>
+    <p>4</p>
+
+    <script>
+        document.querySelectorAll('p').forEach(p => {
+            p.addEventListener('click', () => {
+                const number = parseInt(p.textContent);
+                if (!isNaN(number)) {
+                    p.textContent = number * number;
+                }
+            });
+        });
+    </script>
+</body>
+</html>
