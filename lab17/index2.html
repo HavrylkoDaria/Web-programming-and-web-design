@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Гра "Вгадай число"</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin-top: 50px;
+        }
+        .game-container {
+            font-size: 24px;
+            margin-bottom: 20px;
+        }
+        button {
+            font-size: 16px;
+            padding: 10px 20px;
+            cursor: pointer;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            margin-top: 10px;
+        }
+        button:hover {
+            background-color: #45a049;
+        }
+        input[type="number"] {
+            font-size: 16px;
+            padding: 5px 10px;
+            margin-top: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            width: 80px;
+        }
+        .hint {
+            font-style: italic;
+            margin-top: 10px;
+        }
+    </style>
+    <script>
+        let randomNumber;
+        let attempts = 0;
+
+        function startGame() {
+            randomNumber = Math.floor(Math.random() * 101);
+            attempts = 0;
+            document.getElementById('guess').value = '';
+            document.getElementById('hints').innerHTML = '';
+            document.getElementById('result').innerHTML = '';
+        }
+
+        function guessNumber() {
+            let guess = parseInt(document.getElementById('guess').value);
+
+            if (isNaN(guess) || guess < 0 || guess > 100) {
+                alert('Будь ласка, введіть коректне число в діапазоні від 0 до 100.');
+                return;
+            }
+
+            attempts++;
+
+            if (guess === randomNumber) {
+                let message = `За ${attempts} спроб ви вгадали число ${randomNumber}.`;
+                document.getElementById('result').innerHTML = `<p>${message}</p>`;
+                document.getElementById('hints').innerHTML = '';
+            } else {
+                let hint = getHint(guess, randomNumber);
+                document.getElementById('hints').innerHTML += `<p>${hint}</p>`;
+            }
+        }
+
+        function getHint(guess, target) {
+            let difference = Math.abs(guess - target);
+            if (difference >= 50) {
+                return 'Дуже холодно!';
+            } else if (difference >= 30) {
+                return 'Холодно.';
+            } else if (difference >= 20) {
+                return 'Холодніше.';
+            } else if (difference >= 10) {
+                return 'Тепліше.';
+            } else if (difference >= 5) {
+                return 'Гаряче!';
+            } else {
+                return 'Дуже гаряче!!!';
+            }
+        }
+    </script>
+</head>
+<body>
+    <h1>Гра "Вгадай число"</h1>
+    <div class="game-container">
+        <p>Вгадайте число від 0 до 100:</p>
+        <input type="number" id="guess" min="0" max="100">
+        <br>
+        <button onclick="guessNumber()">Вгадати</button>
+        <button onclick="startGame()">Нова гра</button>
+        <div id="hints" class="hint"></div>
+        <div id="result"></div>
+    </div>
+</body>
+</html>

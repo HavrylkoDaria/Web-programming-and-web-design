@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Поточний час</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin-top: 50px;
+        }
+        .time-container {
+            font-size: 24px;
+            margin-bottom: 20px;
+        }
+        button {
+            font-size: 16px;
+            padding: 10px 20px;
+            cursor: pointer;
+        }
+    </style>
+    <script>
+        function getCurrentTimeFormatted() {
+            let now = new Date();
+
+            // Форматування годин, хвилин і секунд з додаванням нулів
+            let hours = ('0' + now.getHours()).slice(-2);
+            let minutes = ('0' + now.getMinutes()).slice(-2);
+            let seconds = ('0' + now.getSeconds()).slice(-2);
+
+            // Отримання дня тижня, дня місяця і року
+            let daysOfWeek = ['неділя', 'понеділок', 'вівторок', 'середа', 'четвер', 'п\'ятниця', 'субота'];
+            let dayOfWeek = daysOfWeek[now.getDay()];
+
+            let dayOfMonth = now.getDate();
+
+            // Масив місяців, 0 - січень, 1 - лютого, і т.д.
+            let months = ['січня', 'лютого', 'березня', 'квітня', 'травня', 'червня', 'липня', 'серпня', 'вересня', 'жовтня', 'листопада', 'грудня'];
+            let month = months[now.getMonth()];
+
+            let year = now.getFullYear();
+
+            // Формування результату
+            let formattedTime = `${hours}:${minutes}:${seconds}, ${dayOfWeek}, ${dayOfMonth} ${month} ${year} року`;
+
+            // Вивід у консоль
+            console.log(formattedTime);
+
+            // Вивід на сторінку
+            document.getElementById('current-time').textContent = formattedTime;
+        }
+    </script>
+</head>
+<body>
+    <h1>Поточний час</h1>
+    <div class="time-container">
+        <span id="current-time">Тут буде відображений поточний час</span>
+    </div>
+    <button onclick="getCurrentTimeFormatted()">Показати поточний час</button>
+</body>
+</html>
