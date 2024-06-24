@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <title>Завдання 5</title>
+</head>
+<body>
+    <h1>Завдання 5: Перетворення температури з Цельсія у Фаренгейт</h1>
+    <button onclick="task5()">Ввести температуру</button>
+    
+    <script>
+        function task5() {
+            let Tc = parseFloat(prompt("Введіть температуру в градусах Цельсія"));
+            let Tf = (9 / 5) * Tc + 32;
+            alert(`Температура в градусах Фаренгейта: ${Tf}`);
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <title>Завдання 4</title>
+</head>
+<body>
+    <h1>Завдання 4: Визначення пори року та назви місяця за значенням month</h1>
+    <button onclick="task4()">Ввести місяць</button>
+    
+    <script>
+        function task4() {
+            let month = parseInt(prompt("Введіть число від 1 до 12"));
+
+            let season;
+            let monthName;
+
+            switch (month) {
+                case 12:
+                case 1:
+                case 2:
+                    season = "Зима";
+                    break;
+                case 3:
+                case 4:
+                case 5:
+                    season = "Весна";
+                    break;
+                case 6:
+                case 7:
+                case 8:
+                    season = "Літо";
+                    break;
+                case 9:
+                case 10:
+                case 11:
+                    season = "Осінь";
+                    break;
+                default:
+                    alert("Невірне число. Будь ласка, введіть число від 1 до 12.");
+                    return;
+            }
+
+            switch (month) {
+                case 1:
+                    monthName = "Січень";
+                    break;
+                case 2:
+                    monthName = "Лютий";
+                    break;
+                case 3:
+                    monthName = "Березень";
+                    break;
+                case 4:
+                    monthName = "Квітень";
+                    break;
+                case 5:
+                    monthName = "Травень";
+                    break;
+                case 6:
+                    monthName = "Червень";
+                    break;
+                case 7:
+                    monthName = "Липень";
+                    break;
+                case 8:
+                    monthName = "Серпень";
+                    break;
+                case 9:
+                    monthName = "Вересень";
+                    break;
+                case 10:
+                    monthName = "Жовтень";
+                    break;
+                case 11:
+                    monthName = "Листопад";
+                    break;
+                case 12:
+                    monthName = "Грудень";
+                    break;
+            }
+
+            alert(`Місяць: ${monthName}, Пора року: ${season}`);
+        }
+    </script>
+</body>
+</html>

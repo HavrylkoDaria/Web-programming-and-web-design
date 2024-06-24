@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <title>Завдання 3</title>
+</head>
+<body>
+    <h1>Завдання 3: Ділити число numb = 10000 на 2, поки результат не стане менше 50</h1>
+    <button onclick="task3()">Розрахувати</button>
+    <pre id="task3Output"></pre>
+    
+    <script>
+        function task3() {
+            let numb = 10000;
+            let counter = 0;
+
+            while (numb >= 50) {
+                numb /= 2;
+                counter++;
+            }
+
+            let result = `Result: ${numb}\nCounter: ${counter}`;
+            document.getElementById('task3Output').textContent = result;
+        }
+    </script>
+</body>
+</html>

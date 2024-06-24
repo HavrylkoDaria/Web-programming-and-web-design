@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <title>Завдання 6</title>
+</head>
+<body>
+    <h1>Завдання 6: Виведення дня тижня за числом від 1 до 7</h1>
+    <button onclick="task6()">Ввести день тижня</button>
+    
+    <script>
+        function task6() {
+            let dayNumber = parseInt(prompt("Введіть число від 1 до 7"));
+
+            let dayName;
+
+            switch (dayNumber) {
+                case 1:
+                    dayName = "Понеділок";
+                    break;
+                case 2:
+                    dayName = "Вівторок";
+                    break;
+                case 3:
+                    dayName = "Середа";
+                    break;
+                case 4:
+                    dayName = "Четвер";
+                    break;
+                case 5:
+                    dayName = "П'ятниця";
+                    break;
+                case 6:
+                    dayName = "Субота";
+                    break;
+                case 7:
+                    dayName = "Неділя";
+                    break;
+                default:
+                    alert("Невірне число. Будь ласка, введіть число від 1 до 7.");
+                    return;
+            }
+
+            alert(`День тижня: ${dayName}`);
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <title>Завдання 1</title>
+</head>
+<body>
+    <h1>Завдання 1: Вивести всі прості числа в проміжку від 0 до 100</h1>
+    <button onclick="task1()">Вивести прості числа</button>
+    <pre id="task1Output"></pre>
+    
+    <script>
+        function task1() {
+            let i = 2;
+            let result = '';
+
+            while (i <= 100) {
+                let isPrime = true;
+                let j = 2;
+
+                while (j <= Math.sqrt(i)) {
+                    if (i % j === 0) {
+                        isPrime = false;
+                        break;
+                    }
+                    j++;
+                }
+
+                if (isPrime) {
+                    result += i + '\n';
+                }
+
+                i++;
+            }
+
+            document.getElementById('task1Output').textContent = result;
+        }
+    </script>
+</body>
+</html>

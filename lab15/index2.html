@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <title>Завдання 2</title>
+</head>
+<body>
+    <h1>Завдання 2: Виведення чисел від 0 до 10 за допомогою циклу do...while</h1>
+    <button onclick="task2()">Вивести числа</button>
+    <pre id="task2Output"></pre>
+    
+    <script>
+        function task2() {
+            let i = 0;
+            let result = '';
+
+            do {
+                if (i === 0) {
+                    result += `${i} – це нуль\n`;
+                } else if (i % 2 === 0) {
+                    result += `${i} – парне число\n`;
+                } else {
+                    result += `${i} – непарне число\n`;
+                }
+                i++;
+            } while (i <= 10);
+
+            document.getElementById('task2Output').textContent = result;
+        }
+    </script>
+</body>
+</html>
