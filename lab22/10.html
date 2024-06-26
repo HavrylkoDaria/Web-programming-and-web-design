@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>10</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 600px;
+            margin: 20px auto;
+            padding: 0 20px;
+            text-align: center;
+        }
+        h1 {
+            margin-bottom: 20px;
+        }
+        p {
+            margin-bottom: 10px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Перевернутий масив з квадратами чисел</h1>
+    <p>Створити функцію, яка приймає параметром масив і повертає перевернутий масив, де всі числові значення підносяться до квадрату, а значення всіх інших елементів залишаються без змін.</p>
+
+    <script>
+        function reverseAndSquareArray(arr) {
+            // перевернути масив
+            const reversedArray = arr.slice().reverse(); // створюємо копію масиву і потім перевертаємо
+
+            // піднесення до квадрату числових значень
+            const squaredArray = reversedArray.map(element => {
+                if (typeof element === 'number') {
+                    return element ** 2;
+                } else {
+                    return element; // залишаємо без змін нечислові значення
+                }
+            });
+
+            return squaredArray;
+        }
+
+        const arr = [1, 2, 7, 12, 3, 4];
+        console.log("Оригінальний масив:", arr);
+        const result = reverseAndSquareArray(arr);
+        console.log("Результат:", result);
+    </script>
+</body>
+</html>

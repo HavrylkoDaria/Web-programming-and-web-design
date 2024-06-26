@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>11</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 600px;
+            margin: 20px auto;
+            padding: 0 20px;
+            text-align: center;
+        }
+        h1 {
+            margin-bottom: 20px;
+        }
+        p {
+            margin-bottom: 10px;
+        }
+        .result {
+            margin-top: 20px;
+            background-color: #f0f0f0;
+            padding: 10px;
+            border-radius: 5px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Видалення дублікатів з масиву</h1>
+    <p>Напишіть функцію, яка видаляє дублікати з масиву. Наприклад, вхідний масив: [1, 2, 2, 4, 5, 4, 7, 8, 7, 3, 6], який повертає функція [1, 2, 4, 5, 7, 8, 3, 6].</p>
+
+    <script>
+        function removeDuplicates(arr) {
+            const uniqueArray = [...new Set(arr)];
+            return uniqueArray;
+        }
+
+        const inputArray = [1, 2, 2, 2, 4, 5 , 4, 7, 8, 7, 3, 6, 2, 3];
+        const result = removeDuplicates(inputArray);
+        console.log("Вихідний масив:", inputArray);
+        console.log("Результат:", result);
+
+        // Для відображення на сторінці
+        const resultElement = document.createElement('div');
+        resultElement.classList.add('result');
+        resultElement.textContent = "Результат: " + result.join(', ');
+        document.body.appendChild(resultElement);
+    </script>
+</body>
+</html>

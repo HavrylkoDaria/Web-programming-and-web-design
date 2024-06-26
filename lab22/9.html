@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>9</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 600px;
+            margin: 20px auto;
+            padding: 0 20px;
+            text-align: center;
+        }
+        h1 {
+            margin-bottom: 20px;
+        }
+        p {
+            margin-bottom: 10px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Аналіз числа</h1>
+    <p>Напишіть функцію, яка буде приймати число і визначати:</p>
+    <p>Чи є введене число позитивним або негативним;</p>
+    <p>Чи є число простим;</p>
+    <p>Чи ділиться воно на 2, 5, 3, 6, 9 без залишку.</p>
+
+    <script>
+        function analyzeNumber() {
+            const number = parseInt(prompt("Введіть число:"));
+
+            // визначення чи є число позитивним або негативним
+            if (number > 0) {
+                console.log(number + " є позитивним числом");
+            } else if (number < 0) {
+                console.log(number + " є негативним числом");
+            } else {
+                console.log(number + " є нульом");
+            }
+
+            // визначення чи є число простим
+            let isPrime = true;
+            if (number <= 1) {
+                isPrime = false;
+            } else {
+                for (let i = 2; i <= Math.sqrt(number); i++) {
+                    if (number % i === 0) {
+                        isPrime = false;
+                        break;
+                    }
+                }
+            }
+            if (isPrime) {
+                console.log(number + " є простим числом");
+            } else {
+                console.log(number + " не є простим числом");
+            }
+
+            // визначення дільників числа без залишку
+            console.log("Дільниками числа " + number + " без залишку є:");
+            if (number % 2 === 0) {
+                console.log("2");
+            }
+            if (number % 5 === 0) {
+                console.log("5");
+            }
+            if (number % 3 === 0) {
+                console.log("3");
+            }
+            if (number % 6 === 0) {
+                console.log("6");
+            }
+            if (number % 9 === 0) {
+                console.log("9");
+            }
+        }
+
+        analyzeNumber();
+    </script>
+</body>
+</html>

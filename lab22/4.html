@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>4</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 600px;
+            margin: 20px auto;
+            padding: 0 20px;
+        }
+        h1 {
+            text-align: center;
+        }
+        p {
+            margin-bottom: 10px;
+        }
+        .result {
+            font-size: 24px;
+            margin-top: 10px;
+            padding: 10px;
+            background-color: #f0f0f0;
+            border: 1px solid #ccc;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <h1>Середнє арифметичне значень</h1>
+    <p>Створіть функцію Calculate, яка приймає три параметри цілочислених значення та виводить на екран середнє арифметичне цих параметрів.</p>
+
+    <div class="result" id="result"></div>
+
+    <script>
+        function calculate(a, b, c){
+            const average = (a + b + c) / 3;
+            document.getElementById("result").innerText = `Середнє арифметичне: ${average}`;
+        }
+
+        calculate(45, 20, 100); // Виклик функції з параметрами 45, 20, 100
+    </script>
+
+</body>
+</html>

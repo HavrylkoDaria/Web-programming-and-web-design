@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>8</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 600px;
+            margin: 20px auto;
+            padding: 0 20px;
+            text-align: center;
+        }
+        h1 {
+            margin-bottom: 20px;
+        }
+        p {
+            margin-bottom: 10px;
+        }
+        button {
+            padding: 10px 20px;
+            font-size: 16px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            cursor: pointer;
+            margin-top: 10px;
+        }
+        button:hover {
+            background-color: #45a049;
+        }
+    </style>
+</head>
+<body>
+    <h1>Арифметичні операції</h1>
+    <p>Створіть чотири функції для арифметичних операцій: Add (додавання), Sub (віднімання), Mul (множення), Div (ділення).</p>
+    <p>Кожна функція приймає два параметри і виводить на екран результат обчислення.</p>
+    <p>Функція ділення перевіряє на нуль.</p>
+
+    <button onclick="chooseOperation()">Виконати операцію</button>
+
+    <script>
+        function add(x, y){
+            console.log("Додавання:", x + y);
+        }
+        function sub(x, y){
+            console.log("Віднімання:", x - y);
+        }
+        function mul(x, y){
+            console.log("Множення:", x * y);
+        }
+        function div(x, y){
+            if (y === 0){
+                console.log("Ділення на нуль неможливе");
+            } else {
+                console.log("Ділення:", x / y);
+            }
+        }
+
+        function chooseOperation() {
+            const x = parseFloat(prompt("Введіть перше число:"));
+            const y = parseFloat(prompt("Введіть друге число:"));
+            const operation = prompt("Виберіть операцію (add, sub, mul, div):");
+
+            switch (operation) {
+                case "add":
+                    add(x, y);
+                    break;
+                case "sub":
+                    sub(x, y);
+                    break;
+                case "mul":
+                    mul(x, y);
+                    break;
+                case "div":
+                    div(x, y);
+                    break;
+                default:
+                    console.log("Неправильна операція");
+            }
+        }
+    </script>
+</body>
+</html>

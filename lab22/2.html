@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>2</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 600px;
+            margin: 20px auto;
+            padding: 0 20px;
+        }
+        h1 {
+            text-align: center;
+        }
+        p {
+            margin-bottom: 10px;
+        }
+        .result {
+            font-size: 20px;
+            margin-top: 10px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Периметр правильного багатокутника</h1>
+    <p>Напишіть функцію perimeter, яка підраховує периметр правильного багатокутника. Перший параметр функції - side, довжина сторони, другий параметр - count, кількість сторін в багатокутнику (P = n * a).</p>
+
+    <script>
+        function perimeter(side, count){
+            return side * count;
+        }
+        
+        const count = 6;
+        const side = 40;
+        const result = perimeter(side, count);
+        
+        // Displaying result on the page
+        document.write(`<p>Периметр багатокутника з ${count} сторонами довжиною ${side} одиниць дорівнює ${result} одиниць.</p>`);
+    </script>
+
+</body>
+</html>

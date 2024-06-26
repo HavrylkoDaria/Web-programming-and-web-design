@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>1</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 600px;
+            margin: 20px auto;
+            padding: 0 20px;
+        }
+        h1 {
+            text-align: center;
+        }
+        p {
+            margin-bottom: 10px;
+        }
+        input[type="number"] {
+            width: 100%;
+            padding: 8px;
+            font-size: 16px;
+            margin-bottom: 10px;
+            box-sizing: border-box;
+        }
+        button {
+            padding: 10px 20px;
+            font-size: 16px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #45a049;
+        }
+        #remainder {
+            font-size: 20px;
+            margin-top: 10px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Напишіть функцію seconds</h1>
+    <p>Напишіть функцію seconds, яка приймає числовий параметр total і повертає залишок від ділення числа total на 60</p>
+
+    <input type="number" id="totalInput" placeholder="Введіть число">
+    <button onclick="calculateRemainder()">Отримати залишок</button>
+    <p id="remainder"></p>
+
+    <script>
+        function seconds(total){
+            return total % 60;
+        }
+
+        function calculateRemainder(){
+            const totalSeconds = document.getElementById("totalInput").value;
+            const remainder = seconds(totalSeconds);
+            document.getElementById("remainder").innerText = remainder;
+        }
+    </script>
+
+</body>
+</html>

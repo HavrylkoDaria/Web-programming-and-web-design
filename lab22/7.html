@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>7</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 600px;
+            margin: 20px auto;
+            padding: 0 20px;
+        }
+        h1 {
+            text-align: center;
+        }
+        p {
+            margin-bottom: 10px;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 20px;
+        }
+        table, th, td {
+            border: 1px solid #ccc;
+            padding: 8px;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <h1>Заміна значень у двовимірному масиві</h1>
+    <p>Створити двовимірний масив елементів розмірністю 5x5 і заповнити його довільними цілочисельними значеннями. По головній діагоналі всі числа зі знаком (-) замінити на 0, а числа зі знаком (+) на число 1.</p>
+
+    <table>
+        <caption>Початковий масив</caption>
+        <tbody id="initialMatrix"></tbody>
+    </table>
+
+    <table>
+        <caption>Змінений масив</caption>
+        <tbody id="modifiedMatrix"></tbody>
+    </table>
+
+    <script>
+        const matrix = [
+            [5, 2, -7, 9, -3],
+            [1, -6, 8, -4, 7],
+            [-2, 3, -5, 6, 4],
+            [8, -1, 2, -9, 5],
+            [-4, 7, -3, 1, 1]
+        ];
+
+        const initialMatrixContainer = document.getElementById("initialMatrix");
+        const modifiedMatrixContainer = document.getElementById("modifiedMatrix");
+
+        // Вивід початкового масиву
+        matrix.forEach(row => {
+            const tr = document.createElement("tr");
+            row.forEach(cell => {
+                const td = document.createElement("td");
+                td.textContent = cell;
+                tr.appendChild(td);
+            });
+            initialMatrixContainer.appendChild(tr);
+        });
+
+        // Заміна значень по головній діагоналі
+        const modifiedMatrix = matrix.map((row, rowIndex) => {
+            return row.map((cell, colIndex) => {
+                if (rowIndex === colIndex) {
+                    if (cell < 0) {
+                        return 0;
+                    } else if (cell > 0) {
+                        return 1;
+                    }
+                }
+                return cell;
+            });
+        });
+
+        // Вивід зміненого масиву
+        modifiedMatrix.forEach(row => {
+            const tr = document.createElement("tr");
+            row.forEach(cell => {
+                const td = document.createElement("td");
+                td.textContent = cell;
+                tr.appendChild(td);
+            });
+            modifiedMatrixContainer.appendChild(tr);
+        });
+
+        console.log("Початковий масив:", matrix);
+        console.log("Змінений масив:", modifiedMatrix);
+    </script>
+</body>
+</html>

@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>6</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 600px;
+            margin: 20px auto;
+            padding: 0 20px;
+        }
+        h1 {
+            text-align: center;
+        }
+        p {
+            margin-bottom: 10px;
+        }
+        .result {
+            margin-top: 10px;
+            padding: 10px;
+            background-color: #f0f0f0;
+            border: 1px solid #ccc;
+        }
+        pre {
+            white-space: pre-wrap;
+            word-wrap: break-word;
+        }
+    </style>
+</head>
+<body>
+    <h1>Операції з масивом</h1>
+    <p>Створити масив розмірністю N елементів, заповнити його довільними цілими значеннями.</p>
+    <p>Вивести:</p>
+    <ul>
+        <li>Найбільше значення масиву</li>
+        <li>Найменше значення масиву</li>
+        <li>Загальну суму елементів</li>
+        <li>Середнє арифметичне всіх елементів</li>
+        <li>Непарні значення</li>
+    </ul>
+
+    <div class="result">
+        <pre id="output"></pre>
+    </div>
+
+    <script>
+        const N = 10;
+
+        // Довільний масив
+        const array = [];
+        for (let i = 0; i < N; i++) {
+            array.push(Math.floor(Math.random() * 100) + 1);
+        }
+
+        // Найбільше значення
+        const max = Math.max(...array);
+        // Найменше значення
+        const min = Math.min(...array);
+
+        // Загальна сума елементів в масиві
+        const sum = array.reduce((acc, curr) => acc + curr, 0);
+
+        // Середнє арифметичне всіх елементів
+        const average = sum / N;
+
+        // Непарні значення
+        const oddValues = array.filter(num => num % 2 !== 0);
+
+        // Формування тексту результатів
+        const outputText = `
+            Масив: ${array.join(', ')}
+            Найбільше значення: ${max}
+            Найменше значення: ${min}
+            Загальна сума елементів: ${sum}
+            Середнє арифметичне всіх елементів: ${average.toFixed(2)}
+            Непарні значення: ${oddValues.join(', ')}
+        `;
+
+        // Виведення результатів у елементі <pre>
+        document.getElementById("output").innerText = outputText;
+    </script>
+
+</body>
+</html>

@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>3</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 600px;
+            margin: 20px auto;
+            padding: 0 20px;
+        }
+        h1 {
+            text-align: center;
+        }
+        p {
+            margin-bottom: 10px;
+        }
+        .output {
+            font-size: 18px;
+            margin-top: 10px;
+            padding: 10px;
+            background-color: #f0f0f0;
+            border: 1px solid #ccc;
+        }
+    </style>
+</head>
+<body>
+    <h1>Функція FizzBuzz</h1>
+    <p>Потрібно написати функцію, що виводить в консоль числа від 1 до n, де n - це ціле число, яке функція приймає як параметр, з такими умовами:</p>
+    <ul>
+        <li>виводить "fizz" замість чисел, кратних 3;</li>
+        <li>виводить "buzz" замість чисел, кратних 5;</li>
+        <li>виводить "fizzbuzz" замість чисел, кратних як 3, так і 5.</li>
+    </ul>
+
+    <div class="output" id="output"></div>
+
+    <script>
+        function multiples(n){
+            let output = "";
+            for (let i = 1; i <= n; i++){
+                if (i % 3 === 0 && i % 5 === 0){
+                    output += "fizzbuzz<br>";
+                } else if (i % 3 === 0){
+                    output += "fizz<br>";
+                } else if (i % 5 === 0){
+                    output += "buzz<br>";
+                } else {
+                    output += i + "<br>";
+                }
+            }
+            document.getElementById("output").innerHTML = output;
+        }
+
+        multiples(15); // Виклик функції з параметром 15
+    </script>
+
+</body>
+</html>
