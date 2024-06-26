@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>роботі з об'єктами</title>
+</head>
+<body>
+
+	<script>
+		function languagePromt(){
+			var language = prompt("Виберіть мову “ua” або “en”? / Choose language “ua” or “en”?").toLowerCase(); //зміна будь-якого на нижній регістр
+			if (language === "ua"){
+				dayOfWeek("Введіть номер дня неділі від 1 до 7?");
+			} else if (language === "en"){
+				dayOfWeek ("Enter the day number of the week (from 1 to 7)?");
+			} else {
+				alert("Будь ласка, виберіть 'ua' або 'en'");
+				languagePromt();
+			}
+		}
+
+		function dayOfWeek(promptMessage){
+		    var day = parseInt(prompt(promptMessage));
+
+		    if (day >= 1 && day <= 7) {
+		        var daysOfWeek = {
+		            ua: ["Понеділок", "Вівторок", "Середа", "Четвер", "П'ятниця", "Субота", "Неділя"],
+		            en: ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"]
+		        };
+		        var language = document.getElementsByTagName('body')[0].innerHTML.indexOf("ua") !== -1 ? "ua" : "en";
+		        var day = daysOfWeek[language][day - 1]; // змінна day використовується з масиву
+		        alert(day);
+		    } else {
+		        alert("Невірне число, введіть від 1 до 7");
+		        dayOfWeek(promptMessage);
+		    }
+		}
+		languagePromt();
+	</script>
+</body>
+</html>

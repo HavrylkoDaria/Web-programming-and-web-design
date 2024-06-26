@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title></title>
+</head>
+<body>
+    <script>
+        class NetworkElement { //базовий клас для елементу
+            constructor(type) {
+                this.type = type;
+            }
+        }
+        class PowerStation extends NetworkElement { //підклас електростанції
+            constructor(power) {
+                super("PowerStation"); //виклик конструктора батьківського класу
+                this.power = power;
+            }
+        }
+        class SolarPanel extends NetworkElement { //підклас сонячних панелей
+            constructor(power) {
+                super("SolarPanel");
+                this.power = power;
+            }
+        }
+        class ResidentialBuilding extends NetworkElement { //підклас житлового будинку
+            constructor(numApartments) {
+                super("ResidentialBuilding");
+                this.numApartments = numApartments;
+            }
+        }
+        class PowerLine extends NetworkElement { //лінія електропередачі
+            constructor(powerCapacity, priceMW) {
+                super("PowerLine");
+                this.powerCapacity = powerCapacity;
+                this.priceMW = priceMW;
+            }
+        }
+        function calculateElectricityAndCost(networkElements) {//розрахунок електрики та вартості
+            let electricityNeededDay = 0;
+            let electricityNeededNight = 0;
+            let totalCost = 0;
+
+            networkElements.forEach(element => {
+                if (element.type === "PowerStation") {
+                    electricityNeededDay += element.power;
+                } else if (element.type === "SolarPanel") {
+                    electricityNeededDay += element.power;
+                } else if (element.type === "ResidentialBuilding") {
+                    electricityNeededDay += element.numApartments * 4;//день
+                    electricityNeededNight += element.numApartments;//ніч
+                } else if (element.type === "PowerLine") {
+                    const powerTransferred = Math.min(element.powerCapacity, electricityNeededDay);
+                    electricityNeededDay -= powerTransferred;
+                    totalCost += powerTransferred * element.priceMW;
+                }
+            });
+            return { electricityNeededDay, electricityNeededNight, totalCost };
+        }
+
+        const networkElements = [
+            new PowerStation(50), //від 1 до 100 мегават
+            new SolarPanel(2), //від 1 до 5 мегават 
+            new ResidentialBuilding(200), //від 1 до 400 квартир
+            //На різних лініях може бути різна ціна
+            new PowerLine(30, 20), //потужність та ціна мегавата
+            new PowerLine(25, 15)
+        ];
+
+        const result = calculateElectricityAndCost(networkElements);
+        console.log("Електрика необхідна вдень:", result.electricityNeededDay, "мегават");
+        console.log("Електрика необхідна вночі:", result.electricityNeededNight, "мегават");
+        console.log("Загальна вартість:", result.totalCost, "грн");
+    </script>
+</body>
+</html>
